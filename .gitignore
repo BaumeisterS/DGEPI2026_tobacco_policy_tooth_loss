@@ -1,0 +1,14 @@
+# no data in this repository
+*.dta
+*.csv
+*.sav
+*.rds
+*.parquet
+*.xpt
+data/raw/
+# build artefacts
+*.log
+*.aux
+__pycache__/
+.Rhistory
+.RData
