@@ -17,9 +17,9 @@ The underlying paper is in print in the *Journal of Dental Research*.
 
 ## What this study does
 
-Cigarette taxes, prices and smoke-free laws reduce smoking, and smoking is the dominant
-modifiable cause of periodontitis and tooth loss. Whether tobacco-control policy therefore
-reduces **population tooth loss** has rarely been tested. Using the Behavioral Risk Factor
+Cigarette taxes and prices reduce smoking, and smoking is the dominant modifiable cause of
+periodontitis and tooth loss. Whether tobacco-control policy therefore reduces **population
+tooth loss** has rarely been tested. Using the Behavioral Risk Factor
 Surveillance System (BRFSS) 1995–2012 (15 cycles, N = 3,840,519, 51 states), we estimate the
 effect of state cigarette tax/price and smoke-free laws on complete edentulism and loss of
 ≥6 teeth, with current smoking and quitting as positive controls and seat-belt use and
@@ -33,6 +33,10 @@ combines *staggered binary* (smoke-free laws) and *continuous* (tax/price) treat
 effect on tooth loss over the 1995–2012 window. The null is a limit of the design — the
 plausible mediated effect (≈0.01–0.04 percentage points) lies far below the minimum
 detectable effect (≈0.49 pp) — so it is an equivalence statement, not evidence of absence.
+
+Indoor smoking bans reduced neither smoking nor tooth loss, and the **mall/grocery ban fails a
+negative-control test** (smoke-detector testing, −1.17 pp; 95% CI −2.27, −0.08), so those ban
+estimates are not interpreted causally. Taxes and prices pass both negative controls.
 
 ## Repository contents
 
@@ -58,9 +62,12 @@ layout and where to obtain each file.
 | `08_robust_ci_cr2.R` | CR2 / Satterthwaite small-cluster inference |
 | `10_continuous_dose_robust.do` | continuous-dose estimators and high-dose cohorts |
 
-Estimators: Callaway–Sant'Anna (2021), Sun–Abraham (2021), Borusyak–Jaravel–Spiess (2024),
-Gardner two-stage (2022), Wooldridge extended two-way fixed effects (2025); continuous dose
-handled as high-dose cohorts following Callaway, Goodman-Bacon & Sant'Anna (2024).
+Estimators: Callaway–Sant'Anna (2021) and Sun–Abraham (2021) for group-time effects,
+Borusyak–Jaravel–Spiess (2024) and Gardner two-stage (2022) for imputation; the continuous dose
+is handled as high-dose cohorts following Callaway, Goodman-Bacon & Sant'Anna (2024). The
+extended two-way fixed-effects (two-way Mundlak) regression of Wooldridge (2025) is reported as
+a **specification check rather than a heterogeneity-robust alternative** — Wooldridge's result is
+that it is algebraically equivalent to two-way fixed effects.
 
 ## Software environment
 
