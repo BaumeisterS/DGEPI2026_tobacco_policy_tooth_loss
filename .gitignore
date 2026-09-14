@@ -12,3 +12,8 @@ data/raw/
 __pycache__/
 .Rhistory
 .RData
+
+# speaker material - not part of the public record
+spoken.*
+*.m4a
+*.wav
