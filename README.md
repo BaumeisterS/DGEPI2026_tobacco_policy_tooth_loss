@@ -41,10 +41,21 @@ estimates are not interpreted causally. Taxes and prices pass both negative cont
 ## Repository contents
 
 ```
-slides/   DGEPI2026_Baumeister.pdf     the conference presentation
-code/     01–10                        the analysis pipeline (Stata, R, Python, LaTeX)
-data/     README.txt                   how to obtain the public source data (none distributed)
+slides/           DGEPI2026_Baumeister.pdf   the conference presentation
+slides/figures/   *.R                        scripts for the two slide-only figures
+code/             01–10                      the analysis pipeline (Stata, R, Python, LaTeX)
+data/             README.txt                 how to obtain the public source data (none distributed)
 ```
+
+The deck is 22 pages: 15 presented within the 12-minute slot, then seven backup
+slides (B1–B5, B1b, B1c) shown only if a question calls for them.
+
+`slides/figures/` holds the two figures that are not analysis output.
+`estimator_comparison_r2.R` plots estimates transcribed verbatim from Tables 2–3 and
+Supplementary Table 4 — it recomputes nothing. `estimator_families.R` draws a
+**schematic** (not data) of which panel cells each estimator family uses as treated,
+as comparison, or as the basis for an imputed Y(0). Both write their PNG next to the
+script; run them with the working directory set to that folder.
 
 **No data are distributed.** All sources are public; `data/README.txt` documents the expected
 layout and where to obtain each file.
