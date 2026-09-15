@@ -47,8 +47,12 @@ code/             01–10                      the analysis pipeline (Stata, R, 
 data/             README.txt                 how to obtain the public source data (none distributed)
 ```
 
-The deck is 22 pages: 15 presented within the 12-minute slot, then seven backup
-slides (B1–B5, B1b, B1c) shown only if a question calls for them.
+The deck is 23 pages: 15 presented within the 12-minute slot, then eight backup
+slides shown only if a question calls for them. The backups run B1 (what the
+estimand averages over), B1a–B1c (which 2×2 comparisons exist under staggered
+adoption, what TWFE does with them, and what the heterogeneity-robust families do
+instead), then B2–B5 (inference with 51 clusters, survey design and weighting, the
+causal graph and Δ-SWIG, and SUTVA).
 
 `slides/figures/` holds the two figures that are not analysis output.
 `estimator_comparison_r2.R` plots estimates transcribed verbatim from Tables 2–3 and
