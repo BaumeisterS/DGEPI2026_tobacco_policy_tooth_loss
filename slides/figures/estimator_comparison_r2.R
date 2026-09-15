@@ -25,7 +25,13 @@ d <- tibble::tribble(
   "Complete edentulism",   "cont", "Gardner two-stage",                 0.04, -0.08, 0.17,  "supp",
   "Complete edentulism",   "cont", "Two-way Mundlak (state-year)",          0.20, -0.51, 0.91,  "supp",
   "Complete edentulism",   "coh",  "Callaway\u2013Sant'Anna",           0.44,  0.06, 0.81,  "supp",
-  "Complete edentulism",   "coh",  "BJS imputation",                    0.28, -0.42, 0.98,  "supp"
+  "Complete edentulism",   "coh",  "BJS imputation",                    0.28, -0.42, 0.98,  "supp",
+  # ---- Current smoking (positive control) --------------------------------
+  "Current smoking",       "cont", "TWFE, covariate-adjusted (main)",  -0.35, -0.56, -0.13, "main",
+  "Current smoking",       "cont", "Gardner two-stage",                -0.09, -0.20, 0.01,  "supp",
+  "Current smoking",       "cont", "Two-way Mundlak (state-year)",     -0.09, -0.76, 0.58,  "supp",
+  "Current smoking",       "coh",  "Callaway\u2013Sant'Anna",           0.93, -1.76, 3.63,  "supp",
+  "Current smoking",       "coh",  "BJS imputation",                   -0.30, -0.76, 0.15,  "supp"
 )
 # NOTE: the Sun-Abraham high-tax rows are omitted by design choice for this slide.
 # In R2 they are dashes: "the Sun-Abraham variance is undefined and the group-time
@@ -38,7 +44,7 @@ est_order <- c("BJS imputation", "Callaway\u2013Sant'Anna",
 d <- d |>
   mutate(
     estimator = factor(estimator, levels = est_order),
-    outcome   = factor(outcome, levels = c("Loss of \u22656 teeth", "Complete edentulism")),
+    outcome   = factor(outcome, levels = c("Current smoking", "Loss of \u22656 teeth", "Complete edentulism")),
     block     = factor(block, levels = c("cont", "coh"),
                        labels = c("Continuous dose\nper +$1.00/pack",
                                   "High-tax cohort\n(\u2265$3.00/pack)")),
@@ -54,11 +60,10 @@ p <- ggplot(d, aes(x = est, y = estimator, colour = series)) +
   geom_vline(xintercept = 0, linetype = "dashed", colour = ink, linewidth = 0.45) +
   geom_errorbarh(aes(xmin = lo, xmax = hi), height = 0, linewidth = 0.95, na.rm = TRUE) +
   geom_point(size = 2.9, na.rm = TRUE) +
-  facet_grid(block ~ outcome, scales = "free_y", space = "free_y") +
+  facet_grid(block ~ outcome, scales = "free", space = "free_y") +
   scale_colour_manual(values = c(ink, blue), name = NULL) +
-  scale_x_continuous(breaks = c(-1, -0.5, 0, 0.5, 1, 1.5),
+  scale_x_continuous(n.breaks = 4,
                      labels = function(x) formatC(x, format = "f", digits = 1)) +
-  coord_cartesian(xlim = c(-1.35, 1.55), clip = "off") +
   labs(x = "Percentage points (95% CI)", y = NULL) +
   guides(colour = guide_legend(nrow = 1,
                                override.aes = list(linewidth = 1.4, size = 3.1))) +
@@ -88,7 +93,7 @@ p <- ggplot(d, aes(x = est, y = estimator, colour = series)) +
 # Output goes next to this script. Run with the working directory set to
 # the script's folder:  Rscript estimator_comparison_r2.R
 out <- "estimator_comparison_r2.png"
-ragg::agg_png(out, width = 25.4, height = 9.7, units = "cm", res = 300, background = "white")
+ragg::agg_png(out, width = 32.0, height = 10.2, units = "cm", res = 300, background = "white")
 print(p)
 invisible(dev.off())
 cat("written:", out, "\n")
