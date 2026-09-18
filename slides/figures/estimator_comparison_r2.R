@@ -15,19 +15,19 @@ teal <- "#006E89"; green <- "#7AB51D"; grey_ne <- "#8A9199"
 d <- tibble::tribble(
   ~outcome,                ~block, ~estimator,                        ~est,  ~lo,   ~hi,   ~src,
   # ---- Loss of >=6 teeth -------------------------------------------------
-  "Loss of \u22656 teeth", "cont", "TWFE, covariate-adjusted (main)",  -0.19, -0.53, 0.15,  "main",
+  "Loss of \u22656 teeth", "cont", "TWFE",  -0.19, -0.53, 0.15,  "main",
   "Loss of \u22656 teeth", "cont", "Gardner two-stage",                -0.08, -0.26, 0.10,  "supp",
   "Loss of \u22656 teeth", "cont", "Two-way Mundlak (state-year)",          0.16, -1.10, 1.42,  "supp",
   "Loss of \u22656 teeth", "coh",  "Callaway\u2013Sant'Anna",           0.71,  0.08, 1.33,  "supp",
   "Loss of \u22656 teeth", "coh",  "BJS imputation",                   -0.20, -1.19, 0.79,  "supp",
   # ---- Complete edentulism ----------------------------------------------
-  "Complete edentulism",   "cont", "TWFE, covariate-adjusted (main)",   0.08, -0.14, 0.31,  "main",
+  "Complete edentulism",   "cont", "TWFE",   0.08, -0.14, 0.31,  "main",
   "Complete edentulism",   "cont", "Gardner two-stage",                 0.04, -0.08, 0.17,  "supp",
   "Complete edentulism",   "cont", "Two-way Mundlak (state-year)",          0.20, -0.51, 0.91,  "supp",
   "Complete edentulism",   "coh",  "Callaway\u2013Sant'Anna",           0.44,  0.06, 0.81,  "supp",
   "Complete edentulism",   "coh",  "BJS imputation",                    0.28, -0.42, 0.98,  "supp",
   # ---- Current smoking (positive control) --------------------------------
-  "Current smoking",       "cont", "TWFE, covariate-adjusted (main)",  -0.35, -0.56, -0.13, "main",
+  "Current smoking",       "cont", "TWFE",  -0.35, -0.56, -0.13, "main",
   "Current smoking",       "cont", "Gardner two-stage",                -0.09, -0.20, 0.01,  "supp",
   "Current smoking",       "cont", "Two-way Mundlak (state-year)",     -0.09, -0.76, 0.58,  "supp",
   "Current smoking",       "coh",  "Callaway\u2013Sant'Anna",           0.93, -1.76, 3.63,  "supp",
@@ -39,7 +39,7 @@ d <- tibble::tribble(
 
 est_order <- c("BJS imputation", "Callaway\u2013Sant'Anna",
                "Two-way Mundlak (state-year)", "Gardner two-stage",
-               "TWFE, covariate-adjusted (main)")
+               "TWFE")
 
 d <- d |>
   mutate(

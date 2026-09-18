@@ -51,11 +51,11 @@ imp <- grid |>
     panel = "2. Imputation\nBorusyak-Jaravel-Spiess, Gardner"
   )
 
-# Pooled TWFE / two-way Mundlak: every cell enters one regression.
+# Extended TWFE / two-way Mundlak: every cell enters one regression.
 pool <- grid |>
   mutate(
     role  = "[3] every cell, one regression, no clean/contaminated split",
-    panel = "3. Pooled TWFE / two-way Mundlak\nWooldridge"
+    panel = "3. Extended TWFE / two-way Mundlak\nWooldridge"
   )
 
 d <- bind_rows(gt, imp, pool) |>
@@ -63,7 +63,7 @@ d <- bind_rows(gt, imp, pool) |>
     panel = factor(panel, levels = c(
       "1. Group-time ATT\nCallaway-Sant'Anna, Sun-Abraham",
       "2. Imputation\nBorusyak-Jaravel-Spiess, Gardner",
-      "3. Pooled TWFE / two-way Mundlak\nWooldridge")),
+      "3. Extended TWFE / two-way Mundlak\nWooldridge")),
     role = factor(role, levels = c(
       "[1] treated cohort, g = 6", "[1] clean comparison", "[1] not used by this family",
       "[2] untreated cells: fit Y(0)", "[2] treated cells: impute Y(0), average residuals",
