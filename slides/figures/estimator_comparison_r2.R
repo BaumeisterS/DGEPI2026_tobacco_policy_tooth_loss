@@ -20,24 +20,27 @@ d <- tibble::tribble(
   "Loss of \u22656 teeth", "cont", "Two-way Mundlak (state-year)",          0.16, -1.10, 1.42,  "supp",
   "Loss of \u22656 teeth", "coh",  "Callaway\u2013Sant'Anna",           0.71,  0.08, 1.33,  "supp",
   "Loss of \u22656 teeth", "coh",  "BJS imputation",                   -0.20, -1.19, 0.79,  "supp",
+  "Loss of \u22656 teeth", "coh",  "Sun\u2013Abraham",                   NA, NA, NA,  "supp",
   # ---- Complete edentulism ----------------------------------------------
   "Complete edentulism",   "cont", "TWFE",   0.08, -0.14, 0.31,  "main",
   "Complete edentulism",   "cont", "Gardner two-stage",                 0.04, -0.08, 0.17,  "supp",
   "Complete edentulism",   "cont", "Two-way Mundlak (state-year)",          0.20, -0.51, 0.91,  "supp",
   "Complete edentulism",   "coh",  "Callaway\u2013Sant'Anna",           0.44,  0.06, 0.81,  "supp",
   "Complete edentulism",   "coh",  "BJS imputation",                    0.28, -0.42, 0.98,  "supp",
+  "Complete edentulism",  "coh",  "Sun\u2013Abraham",                   NA, NA, NA,  "supp",
   # ---- Current smoking (positive control) --------------------------------
   "Current smoking",       "cont", "TWFE",  -0.35, -0.56, -0.13, "main",
   "Current smoking",       "cont", "Gardner two-stage",                -0.09, -0.20, 0.01,  "supp",
   "Current smoking",       "cont", "Two-way Mundlak (state-year)",     -0.09, -0.76, 0.58,  "supp",
   "Current smoking",       "coh",  "Callaway\u2013Sant'Anna",           0.93, -1.76, 3.63,  "supp",
+  "Current smoking",       "coh",  "Sun\u2013Abraham",                   0.67, -0.08, 1.42,  "supp",
   "Current smoking",       "coh",  "BJS imputation",                   -0.30, -0.76, 0.15,  "supp"
 )
 # NOTE: the Sun-Abraham high-tax rows are omitted by design choice for this slide.
 # In R2 they are dashes: "the Sun-Abraham variance is undefined and the group-time
 # estimator does not converge" (Suppl. Table 4 note) -- state this aloud on the slide.
 
-est_order <- c("BJS imputation", "Callaway\u2013Sant'Anna",
+est_order <- c("BJS imputation", "Sun\u2013Abraham", "Callaway\u2013Sant'Anna",
                "Two-way Mundlak (state-year)", "Gardner two-stage",
                "TWFE")
 
